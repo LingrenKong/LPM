@@ -106,7 +106,7 @@ def run_train_models():
     R = sys.argv[4].split('=')[1]
     weight_ratio = int(sys.argv[5].split('=')[1])
     print('weight ratio', weight_ratio)
-    config = {'dir_path': '/path/to/working/dir', 'data': data_option, 'model': model_option,
+    config = {'dir_path': '/mnt/e/GitHub Repo/LPM', 'data': data_option, 'model': model_option,
               't1': t1, 'R': R, 'fixed': 'small', 'simple_train_batch_size': 128, 'simple_test_batch_size': 100,
               'epoch_num': 350, 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 5e-4, 'weight_ratio': weight_ratio}
     # fixed: big/small

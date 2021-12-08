@@ -94,7 +94,7 @@ def run_train_models():
     model_option = sys.argv[2].split('=')[1]
     t1 = int(sys.argv[3].split('=')[1])
     R = sys.argv[4].split('=')[1]
-    config = {'dir_path': '/path/to/working/dir', 'data': data_option, 'model': model_option,
+    config = {'dir_path': '/mnt/e/GitHub Repo/LPM', 'data': data_option, 'model': model_option,
               't1': t1, 'R': R, 'simple_train_batch_size': 128, 'simple_test_batch_size': 100, 'epoch_num': 350,
               'lr': 0.1, 'momentum': 0.9, 'weight_decay': 5e-4, 'fixed': 'big'}
     # fixed: big/small
