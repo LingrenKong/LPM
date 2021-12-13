@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.autograd import Variable
 from sklearn.metrics import confusion_matrix
+import time
 
 from utils import set_random_seed, get_minibatches_idx
 from models import ResNet18, VGG
@@ -56,7 +57,7 @@ def simple_train_batch(trainloader, model, loss_function, optimizer, config):
             total_loss += loss
             loss.backward()
             optimizer.step()
-        print('epoch:', epoch, 'loss:', total_loss)
+        print('epoch:', epoch, 'loss:', total_loss,'time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
 
 def simple_test_batch(testloader, model, config):
@@ -95,7 +96,7 @@ def run_train_models():
     t1 = int(sys.argv[3].split('=')[1])
     R = sys.argv[4].split('=')[1]
     config = {'dir_path': '/mnt/e/GitHub Repo/LPM', 'data': data_option, 'model': model_option,
-              't1': t1, 'R': R, 'simple_train_batch_size': 128, 'simple_test_batch_size': 100, 'epoch_num': 350,
+              't1': t1, 'R': R, 'simple_train_batch_size': 512, 'simple_test_batch_size': 400, 'epoch_num': 270,#batch128,100 num 350
               'lr': 0.1, 'momentum': 0.9, 'weight_decay': 5e-4, 'fixed': 'big'}
     # fixed: big/small
     if data_option == 'fashion_mnist':
@@ -118,25 +119,25 @@ def run_train_models():
     model_path = config['dir_path'] + '/models/' + config['data'] + '_' + config['model'] + '_t1=' + \
                  str(config['t1']) + '_R=' + config['R'] + "_" + config['fixed'] + '.pt'
 
-    print('save test data')
+    print('save test data','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     set_random_seed(666)
     save_test_data(config)
 
-    print('save train data')
+    print('save train data','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     set_random_seed(666)
     save_train_data(config)
 
     set_random_seed(666)
-    print('load data from pickle')
+    print('load data from pickle','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     train_data, test_data = load_data_from_pickle(config)
 
-    print('build model')
+    print('build model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     model, loss_function, optimizer = build_model(config)
-    print('train model')
+    print('train model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     simple_train_batch(train_data, model, loss_function, optimizer, config)
-    print('save model')
+    print('save model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     torch.save(model.state_dict(), model_path)
-    print('load model')
+    print('load model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     model.load_state_dict(torch.load(model_path))
     train_res, train_big, train_small, train_confusion_matrix = simple_test_batch(train_data, model, config)
     test_res, test_big, test_small, test_confusion_matrix = simple_test_batch(test_data, model, config)
@@ -144,6 +145,7 @@ def run_train_models():
     print('test accuracy', test_res, test_big, test_small)
     print('train confusion matrix\n', train_confusion_matrix)
     print('test confusion matrix\n', test_confusion_matrix)
+    print('end','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
 
 if __name__ == '__main__':

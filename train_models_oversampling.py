@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.autograd import Variable
 from sklearn.metrics import confusion_matrix
+import time
 
 from utils import set_random_seed, get_minibatches_idx, get_weighted_minibatches_idx
 from models import ResNet18, VGG
@@ -66,7 +67,7 @@ def simple_train_batch(trainloader, model, loss_function, optimizer, config):
             total_loss += loss
             loss.backward()
             optimizer.step()
-        print('epoch:', epoch, 'loss:', total_loss)
+        print('epoch:', epoch, 'loss:', total_loss,'time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
 
 def simple_test_batch(testloader, model, config):
@@ -131,29 +132,29 @@ def run_train_models():
                  str(config['t1']) + '_R=' + config['R'] + '_' + config['fixed'] + '_' + str(config['weight_ratio']) \
                  + '.pt'
 
-    print('save test data')
+    print('save test data','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     set_random_seed(666)
     save_test_data(config)
 
-    print('save train data')
+    print('save train data','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     set_random_seed(666)
     save_train_data(config)
 
     set_random_seed(666)
-    print('load data from pickle')
+    print('load data from pickle','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     train_data, test_data = load_data_from_pickle(config)
 
     weighted_idx = get_weighted_idx(train_data, config)
     config['weighted_idx'] = weighted_idx
     print('weighted idx', weighted_idx)
 
-    print('build model')
+    print('build model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     model, loss_function, optimizer = build_model(config)
-    print('train model')
+    print('train model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     simple_train_batch(train_data, model, loss_function, optimizer, config)
-    print('save model')
+    print('save model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     torch.save(model.state_dict(), model_path)
-    print('load model')
+    print('load model','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     model.load_state_dict(torch.load(model_path))
     train_res, train_big, train_small, train_confusion_matrix = simple_test_batch(train_data, model, config)
     test_res, test_big, test_small, test_confusion_matrix = simple_test_batch(test_data, model, config)
@@ -161,6 +162,7 @@ def run_train_models():
     print('test accuracy', test_res, test_big, test_small)
     print('train confusion matrix\n', train_confusion_matrix)
     print('test confusion matrix\n', test_confusion_matrix)
+    print('end','time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
 
 if __name__ == '__main__':
