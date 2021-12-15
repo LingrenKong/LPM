@@ -1,0 +1,523 @@
+Script started on 2021-12-13 21:08:10+0800
+(base) ]0;root@DESKTOP-VFHBUQ9: /mnt/e/GitHub Repo/LPMroot@DESKTOP-VFHBUQ9:/mnt/e/GitHub Repo/LPM# sh run-cifar-collapse.sh 
+weight ratio 10
+save test data time: 2021-12-13 21:08:20
+Files already downloaded and verified
+test label num [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000]
+save train data time: 2021-12-13 21:08:27
+Files already downloaded and verified
+train label num [5000, 5000, 5000, 5000, 5000, 5, 5, 5, 5, 5]
+load data from pickle time: 2021-12-13 21:08:48
+weighted idx [1, 5, 9, 10, 14, 15, 17, 18, 20, 21, 25, 26, 27, 29, 31, 36, 37, 39, 40, 41, 42, 44, 48, 50, 54]
+build model time: 2021-12-13 21:08:55
+train model time: 2021-12-13 21:08:55
+weighted idx [1, 5, 9, 10, 14, 15, 17, 18, 20, 21, 25, 26, 27, 29, 31, 36, 37, 39, 40, 41, 42, 44, 48, 50, 54]
+epoch: 0 loss: tensor(241.3269, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:00
+epoch: 1 loss: tensor(117.2929, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:04
+epoch: 2 loss: tensor(151.4209, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:09
+epoch: 3 loss: tensor(148.2388, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:13
+epoch: 4 loss: tensor(115.6066, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:17
+epoch: 5 loss: tensor(87.0585, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:22
+epoch: 6 loss: tensor(81.1473, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:26
+epoch: 7 loss: tensor(77.3677, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:30
+epoch: 8 loss: tensor(76.5802, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:35
+epoch: 9 loss: tensor(77.3187, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:39
+epoch: 10 loss: tensor(77.0610, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:43
+epoch: 11 loss: tensor(67.0958, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:48
+epoch: 12 loss: tensor(63.9073, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:52
+epoch: 13 loss: tensor(60.0705, grad_fn=<AddBackward0>) time: 2021-12-13 21:09:56
+epoch: 14 loss: tensor(65.9076, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:01
+epoch: 15 loss: tensor(62.8268, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:05
+epoch: 16 loss: tensor(55.8498, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:10
+epoch: 17 loss: tensor(52.8806, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:14
+epoch: 18 loss: tensor(50.5426, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:18
+epoch: 19 loss: tensor(49.4581, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:23
+epoch: 20 loss: tensor(47.7450, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:27
+epoch: 21 loss: tensor(45.9038, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:32
+epoch: 22 loss: tensor(44.4290, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:36
+epoch: 23 loss: tensor(41.9802, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:40
+epoch: 24 loss: tensor(40.3034, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:45
+epoch: 25 loss: tensor(37.9311, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:49
+epoch: 26 loss: tensor(36.3944, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:54
+epoch: 27 loss: tensor(34.1674, grad_fn=<AddBackward0>) time: 2021-12-13 21:10:58
+epoch: 28 loss: tensor(32.5381, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:02
+epoch: 29 loss: tensor(30.4442, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:07
+epoch: 30 loss: tensor(29.8193, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:11
+epoch: 31 loss: tensor(27.4879, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:16
+epoch: 32 loss: tensor(25.4130, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:20
+epoch: 33 loss: tensor(25.1100, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:25
+epoch: 34 loss: tensor(23.2494, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:29
+epoch: 35 loss: tensor(21.3471, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:34
+epoch: 36 loss: tensor(20.5283, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:38
+epoch: 37 loss: tensor(18.9713, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:42
+epoch: 38 loss: tensor(17.4622, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:47
+epoch: 39 loss: tensor(15.6786, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:51
+epoch: 40 loss: tensor(14.7459, grad_fn=<AddBackward0>) time: 2021-12-13 21:11:56
+epoch: 41 loss: tensor(13.6549, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:00
+epoch: 42 loss: tensor(12.7723, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:05
+epoch: 43 loss: tensor(11.8011, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:09
+epoch: 44 loss: tensor(11.0461, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:14
+epoch: 45 loss: tensor(9.7840, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:18
+epoch: 46 loss: tensor(9.2638, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:23
+epoch: 47 loss: tensor(8.0900, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:27
+epoch: 48 loss: tensor(7.5778, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:32
+epoch: 49 loss: tensor(6.6463, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:37
+epoch: 50 loss: tensor(6.8570, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:41
+epoch: 51 loss: tensor(5.8673, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:46
+epoch: 52 loss: tensor(5.6747, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:50
+epoch: 53 loss: tensor(5.6631, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:55
+epoch: 54 loss: tensor(5.7493, grad_fn=<AddBackward0>) time: 2021-12-13 21:12:59
+epoch: 55 loss: tensor(4.6797, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:04
+epoch: 56 loss: tensor(4.0248, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:08
+epoch: 57 loss: tensor(4.3387, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:13
+epoch: 58 loss: tensor(3.8537, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:17
+epoch: 59 loss: tensor(4.5360, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:22
+epoch: 60 loss: tensor(4.3939, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:26
+epoch: 61 loss: tensor(3.9700, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:30
+epoch: 62 loss: tensor(2.8057, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:35
+epoch: 63 loss: tensor(3.1951, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:39
+epoch: 64 loss: tensor(3.0086, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:44
+epoch: 65 loss: tensor(4.0155, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:48
+epoch: 66 loss: tensor(3.5886, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:53
+epoch: 67 loss: tensor(3.2995, grad_fn=<AddBackward0>) time: 2021-12-13 21:13:57
+epoch: 68 loss: tensor(2.1887, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:02
+epoch: 69 loss: tensor(2.8498, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:06
+epoch: 70 loss: tensor(2.4566, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:11
+epoch: 71 loss: tensor(3.0194, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:15
+epoch: 72 loss: tensor(3.2366, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:20
+epoch: 73 loss: tensor(2.7696, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:24
+epoch: 74 loss: tensor(2.4624, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:29
+epoch: 75 loss: tensor(1.6809, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:33
+epoch: 76 loss: tensor(2.5022, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:38
+epoch: 77 loss: tensor(2.8254, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:42
+epoch: 78 loss: tensor(2.8302, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:47
+epoch: 79 loss: tensor(2.8104, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:51
+epoch: 80 loss: tensor(2.3971, grad_fn=<AddBackward0>) time: 2021-12-13 21:14:56
+epoch: 81 loss: tensor(2.1482, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:00
+epoch: 82 loss: tensor(2.3571, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:05
+epoch: 83 loss: tensor(1.7274, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:09
+epoch: 84 loss: tensor(2.2019, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:14
+epoch: 85 loss: tensor(2.2686, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:18
+epoch: 86 loss: tensor(1.9887, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:23
+epoch: 87 loss: tensor(2.2713, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:27
+epoch: 88 loss: tensor(2.3401, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:32
+epoch: 89 loss: tensor(1.9800, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:36
+epoch: 90 loss: tensor(1.8273, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:40
+epoch: 91 loss: tensor(2.3237, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:45
+epoch: 92 loss: tensor(2.8847, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:49
+epoch: 93 loss: tensor(1.9639, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:54
+epoch: 94 loss: tensor(1.8773, grad_fn=<AddBackward0>) time: 2021-12-13 21:15:58
+epoch: 95 loss: tensor(2.1981, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:03
+epoch: 96 loss: tensor(3.3150, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:07
+epoch: 97 loss: tensor(2.0328, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:11
+epoch: 98 loss: tensor(1.5876, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:16
+epoch: 99 loss: tensor(1.7209, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:20
+epoch: 100 loss: tensor(1.6054, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:25
+epoch: 101 loss: tensor(2.1192, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:29
+epoch: 102 loss: tensor(2.1033, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:34
+epoch: 103 loss: tensor(2.6966, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:38
+epoch: 104 loss: tensor(2.5339, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:43
+epoch: 105 loss: tensor(2.0000, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:47
+epoch: 106 loss: tensor(3.0598, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:51
+epoch: 107 loss: tensor(2.0773, grad_fn=<AddBackward0>) time: 2021-12-13 21:16:56
+epoch: 108 loss: tensor(1.2614, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:00
+epoch: 109 loss: tensor(1.7516, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:05
+epoch: 110 loss: tensor(1.6259, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:09
+epoch: 111 loss: tensor(2.1666, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:14
+epoch: 112 loss: tensor(2.5343, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:18
+epoch: 113 loss: tensor(1.7852, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:23
+epoch: 114 loss: tensor(1.9676, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:27
+epoch: 115 loss: tensor(1.6774, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:32
+divide current learning rate by 10
+epoch: 116 loss: tensor(0.4990, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:36
+epoch: 117 loss: tensor(0.1506, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:41
+epoch: 118 loss: tensor(0.1098, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:45
+epoch: 119 loss: tensor(0.0968, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:50
+epoch: 120 loss: tensor(0.0848, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:54
+epoch: 121 loss: tensor(0.0789, grad_fn=<AddBackward0>) time: 2021-12-13 21:17:59
+epoch: 122 loss: tensor(0.0732, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:03
+epoch: 123 loss: tensor(0.0695, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:08
+epoch: 124 loss: tensor(0.0724, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:12
+epoch: 125 loss: tensor(0.0665, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:17
+epoch: 126 loss: tensor(0.0636, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:21
+epoch: 127 loss: tensor(0.0618, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:26
+epoch: 128 loss: tensor(0.0599, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:31
+epoch: 129 loss: tensor(0.0597, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:35
+epoch: 130 loss: tensor(0.0571, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:40
+epoch: 131 loss: tensor(0.0541, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:44
+epoch: 132 loss: tensor(0.0541, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:48
+epoch: 133 loss: tensor(0.0518, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:53
+epoch: 134 loss: tensor(0.0531, grad_fn=<AddBackward0>) time: 2021-12-13 21:18:58
+epoch: 135 loss: tensor(0.0553, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:02
+epoch: 136 loss: tensor(0.0506, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:07
+epoch: 137 loss: tensor(0.0578, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:11
+epoch: 138 loss: tensor(0.0518, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:16
+epoch: 139 loss: tensor(0.0530, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:20
+epoch: 140 loss: tensor(0.0513, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:25
+epoch: 141 loss: tensor(0.0504, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:29
+epoch: 142 loss: tensor(0.0521, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:34
+epoch: 143 loss: tensor(0.0516, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:38
+epoch: 144 loss: tensor(0.0495, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:43
+epoch: 145 loss: tensor(0.0513, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:47
+epoch: 146 loss: tensor(0.0495, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:52
+epoch: 147 loss: tensor(0.0504, grad_fn=<AddBackward0>) time: 2021-12-13 21:19:56
+epoch: 148 loss: tensor(0.0505, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:00
+epoch: 149 loss: tensor(0.0547, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:05
+epoch: 150 loss: tensor(0.0514, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:09
+epoch: 151 loss: tensor(0.0526, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:14
+epoch: 152 loss: tensor(0.0487, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:18
+epoch: 153 loss: tensor(0.0506, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:23
+epoch: 154 loss: tensor(0.0503, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:27
+epoch: 155 loss: tensor(0.0504, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:32
+epoch: 156 loss: tensor(0.0494, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:36
+epoch: 157 loss: tensor(0.0525, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:41
+epoch: 158 loss: tensor(0.0539, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:45
+epoch: 159 loss: tensor(0.0522, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:50
+epoch: 160 loss: tensor(0.0508, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:54
+epoch: 161 loss: tensor(0.0513, grad_fn=<AddBackward0>) time: 2021-12-13 21:20:59
+epoch: 162 loss: tensor(0.0525, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:03
+epoch: 163 loss: tensor(0.0512, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:08
+epoch: 164 loss: tensor(0.0508, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:12
+epoch: 165 loss: tensor(0.0514, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:17
+epoch: 166 loss: tensor(0.0526, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:21
+epoch: 167 loss: tensor(0.0519, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:26
+epoch: 168 loss: tensor(0.0530, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:30
+epoch: 169 loss: tensor(0.0545, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:35
+epoch: 170 loss: tensor(0.0535, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:39
+epoch: 171 loss: tensor(0.0519, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:44
+epoch: 172 loss: tensor(0.0527, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:48
+epoch: 173 loss: tensor(0.0545, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:53
+epoch: 174 loss: tensor(0.0525, grad_fn=<AddBackward0>) time: 2021-12-13 21:21:57
+epoch: 175 loss: tensor(0.0539, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:02
+epoch: 176 loss: tensor(0.0558, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:06
+epoch: 177 loss: tensor(0.0536, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:11
+epoch: 178 loss: tensor(0.0555, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:15
+epoch: 179 loss: tensor(0.0575, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:19
+epoch: 180 loss: tensor(0.0556, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:24
+epoch: 181 loss: tensor(0.0584, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:28
+epoch: 182 loss: tensor(0.0570, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:33
+epoch: 183 loss: tensor(0.0578, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:37
+epoch: 184 loss: tensor(0.0567, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:42
+epoch: 185 loss: tensor(0.0567, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:46
+epoch: 186 loss: tensor(0.0562, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:51
+epoch: 187 loss: tensor(0.0549, grad_fn=<AddBackward0>) time: 2021-12-13 21:22:55
+epoch: 188 loss: tensor(0.0579, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:00
+epoch: 189 loss: tensor(0.0586, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:04
+epoch: 190 loss: tensor(0.0576, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:09
+epoch: 191 loss: tensor(0.0581, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:13
+epoch: 192 loss: tensor(0.0579, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:18
+epoch: 193 loss: tensor(0.0573, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:23
+epoch: 194 loss: tensor(0.0550, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:27
+epoch: 195 loss: tensor(0.0600, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:32
+epoch: 196 loss: tensor(0.0631, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:36
+epoch: 197 loss: tensor(0.0577, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:41
+epoch: 198 loss: tensor(0.0597, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:45
+epoch: 199 loss: tensor(0.0592, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:50
+epoch: 200 loss: tensor(0.0583, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:54
+epoch: 201 loss: tensor(0.0606, grad_fn=<AddBackward0>) time: 2021-12-13 21:23:59
+epoch: 202 loss: tensor(0.0615, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:03
+epoch: 203 loss: tensor(0.0601, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:08
+epoch: 204 loss: tensor(0.0613, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:12
+epoch: 205 loss: tensor(0.0599, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:17
+epoch: 206 loss: tensor(0.0603, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:21
+epoch: 207 loss: tensor(0.0602, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:26
+epoch: 208 loss: tensor(0.0586, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:30
+epoch: 209 loss: tensor(0.0611, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:35
+epoch: 210 loss: tensor(0.0625, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:39
+epoch: 211 loss: tensor(0.0603, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:44
+epoch: 212 loss: tensor(0.0613, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:48
+epoch: 213 loss: tensor(0.0639, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:53
+epoch: 214 loss: tensor(0.0608, grad_fn=<AddBackward0>) time: 2021-12-13 21:24:57
+epoch: 215 loss: tensor(0.0623, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:02
+epoch: 216 loss: tensor(0.0605, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:06
+epoch: 217 loss: tensor(0.0624, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:11
+epoch: 218 loss: tensor(0.0628, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:15
+epoch: 219 loss: tensor(0.0626, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:20
+epoch: 220 loss: tensor(0.0607, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:24
+epoch: 221 loss: tensor(0.0628, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:29
+epoch: 222 loss: tensor(0.0663, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:33
+epoch: 223 loss: tensor(0.0616, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:38
+epoch: 224 loss: tensor(0.0644, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:42
+epoch: 225 loss: tensor(0.0655, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:47
+epoch: 226 loss: tensor(0.0652, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:51
+epoch: 227 loss: tensor(0.0623, grad_fn=<AddBackward0>) time: 2021-12-13 21:25:56
+epoch: 228 loss: tensor(0.0660, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:00
+epoch: 229 loss: tensor(0.0631, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:05
+epoch: 230 loss: tensor(0.0658, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:09
+epoch: 231 loss: tensor(0.0622, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:14
+epoch: 232 loss: tensor(0.0639, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:18
+divide current learning rate by 10
+epoch: 233 loss: tensor(0.0635, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:23
+epoch: 234 loss: tensor(0.0671, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:27
+epoch: 235 loss: tensor(0.0640, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:32
+epoch: 236 loss: tensor(0.0641, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:36
+epoch: 237 loss: tensor(0.0633, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:41
+epoch: 238 loss: tensor(0.0654, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:45
+epoch: 239 loss: tensor(0.0645, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:50
+epoch: 240 loss: tensor(0.0633, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:54
+epoch: 241 loss: tensor(0.0635, grad_fn=<AddBackward0>) time: 2021-12-13 21:26:59
+epoch: 242 loss: tensor(0.0629, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:03
+epoch: 243 loss: tensor(0.0657, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:08
+epoch: 244 loss: tensor(0.0622, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:12
+epoch: 245 loss: tensor(0.0622, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:17
+epoch: 246 loss: tensor(0.0643, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:21
+epoch: 247 loss: tensor(0.0660, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:26
+epoch: 248 loss: tensor(0.0637, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:30
+epoch: 249 loss: tensor(0.0639, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:35
+epoch: 250 loss: tensor(0.0642, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:39
+epoch: 251 loss: tensor(0.0631, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:43
+epoch: 252 loss: tensor(0.0645, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:48
+epoch: 253 loss: tensor(0.0663, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:53
+epoch: 254 loss: tensor(0.0637, grad_fn=<AddBackward0>) time: 2021-12-13 21:27:57
+epoch: 255 loss: tensor(0.0660, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:01
+epoch: 256 loss: tensor(0.0658, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:06
+epoch: 257 loss: tensor(0.0638, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:10
+epoch: 258 loss: tensor(0.0637, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:15
+epoch: 259 loss: tensor(0.0640, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:19
+epoch: 260 loss: tensor(0.0630, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:24
+epoch: 261 loss: tensor(0.0636, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:28
+epoch: 262 loss: tensor(0.0643, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:33
+epoch: 263 loss: tensor(0.0632, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:37
+epoch: 264 loss: tensor(0.0649, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:42
+epoch: 265 loss: tensor(0.0632, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:46
+epoch: 266 loss: tensor(0.0642, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:51
+epoch: 267 loss: tensor(0.0619, grad_fn=<AddBackward0>) time: 2021-12-13 21:28:55
+epoch: 268 loss: tensor(0.0637, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:00
+epoch: 269 loss: tensor(0.0651, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:04
+epoch: 270 loss: tensor(0.0625, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:09
+epoch: 271 loss: tensor(0.0655, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:13
+epoch: 272 loss: tensor(0.0643, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:18
+epoch: 273 loss: tensor(0.0635, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:22
+epoch: 274 loss: tensor(0.0627, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:27
+epoch: 275 loss: tensor(0.0677, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:31
+epoch: 276 loss: tensor(0.0663, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:36
+epoch: 277 loss: tensor(0.0637, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:40
+epoch: 278 loss: tensor(0.0656, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:45
+epoch: 279 loss: tensor(0.0680, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:49
+epoch: 280 loss: tensor(0.0661, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:54
+epoch: 281 loss: tensor(0.0628, grad_fn=<AddBackward0>) time: 2021-12-13 21:29:58
+epoch: 282 loss: tensor(0.0725, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:03
+epoch: 283 loss: tensor(0.0636, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:07
+epoch: 284 loss: tensor(0.0654, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:12
+epoch: 285 loss: tensor(0.0641, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:16
+epoch: 286 loss: tensor(0.0642, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:21
+epoch: 287 loss: tensor(0.0656, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:25
+epoch: 288 loss: tensor(0.0629, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:30
+epoch: 289 loss: tensor(0.0672, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:34
+epoch: 290 loss: tensor(0.0711, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:39
+epoch: 291 loss: tensor(0.0696, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:43
+epoch: 292 loss: tensor(0.0662, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:48
+epoch: 293 loss: tensor(0.0634, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:52
+epoch: 294 loss: tensor(0.0660, grad_fn=<AddBackward0>) time: 2021-12-13 21:30:57
+epoch: 295 loss: tensor(0.0613, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:01
+epoch: 296 loss: tensor(0.0655, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:06
+epoch: 297 loss: tensor(0.0630, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:10
+epoch: 298 loss: tensor(0.0653, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:15
+epoch: 299 loss: tensor(0.0651, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:19
+epoch: 300 loss: tensor(0.0640, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:24
+epoch: 301 loss: tensor(0.0642, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:28
+epoch: 302 loss: tensor(0.0657, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:33
+epoch: 303 loss: tensor(0.0644, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:37
+epoch: 304 loss: tensor(0.0630, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:42
+epoch: 305 loss: tensor(0.0622, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:46
+epoch: 306 loss: tensor(0.0639, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:51
+epoch: 307 loss: tensor(0.0645, grad_fn=<AddBackward0>) time: 2021-12-13 21:31:55
+epoch: 308 loss: tensor(0.0644, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:00
+epoch: 309 loss: tensor(0.0642, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:04
+epoch: 310 loss: tensor(0.0647, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:09
+epoch: 311 loss: tensor(0.0650, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:13
+epoch: 312 loss: tensor(0.0664, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:18
+epoch: 313 loss: tensor(0.0645, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:22
+epoch: 314 loss: tensor(0.0770, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:27
+epoch: 315 loss: tensor(0.0649, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:31
+epoch: 316 loss: tensor(0.0637, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:35
+epoch: 317 loss: tensor(0.0627, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:40
+epoch: 318 loss: tensor(0.0632, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:44
+epoch: 319 loss: tensor(0.0666, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:49
+epoch: 320 loss: tensor(0.0651, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:53
+epoch: 321 loss: tensor(0.0648, grad_fn=<AddBackward0>) time: 2021-12-13 21:32:58
+epoch: 322 loss: tensor(0.0629, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:02
+epoch: 323 loss: tensor(0.0648, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:07
+epoch: 324 loss: tensor(0.0630, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:11
+epoch: 325 loss: tensor(0.0655, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:16
+epoch: 326 loss: tensor(0.0685, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:20
+epoch: 327 loss: tensor(0.0655, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:25
+epoch: 328 loss: tensor(0.0636, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:29
+epoch: 329 loss: tensor(0.0638, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:34
+epoch: 330 loss: tensor(0.0683, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:38
+epoch: 331 loss: tensor(0.0640, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:43
+epoch: 332 loss: tensor(0.0634, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:47
+epoch: 333 loss: tensor(0.0622, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:52
+epoch: 334 loss: tensor(0.0661, grad_fn=<AddBackward0>) time: 2021-12-13 21:33:56
+epoch: 335 loss: tensor(0.0643, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:00
+epoch: 336 loss: tensor(0.0631, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:05
+epoch: 337 loss: tensor(0.0751, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:09
+epoch: 338 loss: tensor(0.0651, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:14
+epoch: 339 loss: tensor(0.0661, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:18
+epoch: 340 loss: tensor(0.0649, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:23
+epoch: 341 loss: tensor(0.0645, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:27
+epoch: 342 loss: tensor(0.0648, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:32
+epoch: 343 loss: tensor(0.0671, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:36
+epoch: 344 loss: tensor(0.0672, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:41
+epoch: 345 loss: tensor(0.0630, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:45
+epoch: 346 loss: tensor(0.0631, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:50
+epoch: 347 loss: tensor(0.0685, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:54
+epoch: 348 loss: tensor(0.0664, grad_fn=<AddBackward0>) time: 2021-12-13 21:34:58
+epoch: 349 loss: tensor(0.0652, grad_fn=<AddBackward0>) time: 2021-12-13 21:35:03
+save model time: 2021-12-13 21:35:03
+load model time: 2021-12-13 21:35:03
+train accuracy 1.0 1.0 1.0
+test accuracy 0.4418 0.8836 0.0
+train confusion matrix
+ [[5000    0    0    0    0    0    0    0    0    0]
+ [   0 5000    0    0    0    0    0    0    0    0]
+ [   0    0 5000    0    0    0    0    0    0    0]
+ [   0    0    0 5000    0    0    0    0    0    0]
+ [   0    0    0    0 5000    0    0    0    0    0]
+ [   0    0    0    0    0    5    0    0    0    0]
+ [   0    0    0    0    0    0    5    0    0    0]
+ [   0    0    0    0    0    0    0    5    0    0]
+ [   0    0    0    0    0    0    0    0    5    0]
+ [   0    0    0    0    0    0    0    0    0    5]]
+test confusion matrix
+ [[910  14  42  28   6   0   0   0   0   0]
+ [ 17 966   2  10   5   0   0   0   0   0]
+ [ 53   5 840  55  47   0   0   0   0   0]
+ [ 15   7  86 834  58   0   0   0   0   0]
+ [ 12   2  57  61 868   0   0   0   0   0]
+ [ 15   4 150 741  90   0   0   0   0   0]
+ [ 31  21 326 431 191   0   0   0   0   0]
+ [ 68  15 129 232 556   0   0   0   0   0]
+ [681 139  56  96  28   0   0   0   0   0]
+ [198 639  35 112  16   0   0   0   0   0]]
+end time: 2021-12-13 21:35:06
+weight ratio 10
+load data from pickle
+load model
+test accuracy 0.4418 0.8836 0.0
+test confusion matrix
+ [[910  14  42  28   6   0   0   0   0   0]
+ [ 17 966   2  10   5   0   0   0   0   0]
+ [ 53   5 840  55  47   0   0   0   0   0]
+ [ 15   7  86 834  58   0   0   0   0   0]
+ [ 12   2  57  61 868   0   0   0   0   0]
+ [ 15   4 150 741  90   0   0   0   0   0]
+ [ 31  21 326 431 191   0   0   0   0   0]
+ [ 68  15 129 232 556   0   0   0   0   0]
+ [681 139  56  96  28   0   0   0   0   0]
+ [198 639  35 112  16   0   0   0   0   0]]
+analyze weights (10, 4096)
+weights avg square norm 2.240613
+weights norm [1.935813   1.9262044  1.9372162  1.9261085  1.8913966  0.8909504
+ 0.9075302  0.8385534  0.8890165  0.89302146]
+cos weights matrix [[ 1.         -0.14358535 -0.13930126 -0.14491282 -0.16295277 -0.23610619
+  -0.1815625  -0.23787534  0.01533148 -0.26963574]
+ [-0.14358535  1.         -0.19914521 -0.14466633 -0.20375362 -0.27473745
+  -0.05631312 -0.13264929 -0.25616762  0.04345588]
+ [-0.13930126 -0.19914521  1.         -0.13402943 -0.1298635  -0.23231512
+  -0.13080072 -0.19481944 -0.21833976 -0.10882007]
+ [-0.14491282 -0.14466633 -0.13402943  1.         -0.12817194 -0.05473138
+  -0.20387624 -0.28309903 -0.20868668 -0.23359945]
+ [-0.16295277 -0.20375362 -0.1298635  -0.12817194  1.         -0.12370311
+  -0.1316126  -0.11493469 -0.12035342 -0.28506243]
+ [-0.23610619 -0.27473745 -0.23231512 -0.05473138 -0.12370311  1.
+   0.26057592  0.25923881  0.210394    0.2749424 ]
+ [-0.1815625  -0.05631312 -0.13080072 -0.20387624 -0.1316126   0.26057592
+   1.          0.3235029  -0.16782704  0.1073321 ]
+ [-0.23787534 -0.13264929 -0.19481944 -0.28309903 -0.11493469  0.25923881
+   0.3235029   1.          0.3887783   0.16683681]
+ [ 0.01533148 -0.25616762 -0.21833976 -0.20868668 -0.12035342  0.210394
+  -0.16782704  0.3887783   1.          0.29735741]
+ [-0.26963574  0.04345588 -0.10882007 -0.23359945 -0.28506243  0.2749424
+   0.1073321   0.16683681  0.29735741  1.        ]]
+between class weights cosine [-0.14358535 -0.13930126 -0.14491282 -0.16295277 -0.23610619 -0.1815625
+ -0.23787534  0.01533148 -0.26963574 -0.14358535 -0.19914521 -0.14466633
+ -0.20375362 -0.27473745 -0.05631312 -0.13264929 -0.25616762  0.04345588
+ -0.13930126 -0.19914521 -0.13402943 -0.1298635  -0.23231512 -0.13080072
+ -0.19481944 -0.21833976 -0.10882007 -0.14491282 -0.14466633 -0.13402943
+ -0.12817194 -0.05473138 -0.20387624 -0.28309903 -0.20868668 -0.23359945
+ -0.16295277 -0.20375362 -0.1298635  -0.12817194 -0.12370311 -0.1316126
+ -0.11493469 -0.12035342 -0.28506243 -0.23610619 -0.27473745 -0.23231512
+ -0.05473138 -0.12370311  0.26057592  0.25923881  0.210394    0.2749424
+ -0.1815625  -0.05631312 -0.13080072 -0.20387624 -0.1316126   0.26057592
+  0.3235029  -0.16782704  0.1073321  -0.23787534 -0.13264929 -0.19481944
+ -0.28309903 -0.11493469  0.25923881  0.3235029   0.3887783   0.16683681
+  0.01533148 -0.25616762 -0.21833976 -0.20868668 -0.12035342  0.210394
+ -0.16782704  0.3887783   0.29735741 -0.26963574  0.04345588 -0.10882007
+ -0.23359945 -0.28506243  0.2749424   0.1073321   0.16683681  0.29735741]
+std weights norm over avg weights norm 0.37059957
+avg between-class weights cosine -0.08089476983166403
+std between-class weights cosine 0.18427689026021726
+avg weights cosine to -1/(C-1) 0.13349196931784166
+weights cosine for small classes [[ 1.          0.26057592  0.25923881  0.210394    0.2749424 ]
+ [ 0.26057592  1.          0.3235029  -0.16782704  0.1073321 ]
+ [ 0.25923881  0.3235029   1.          0.3887783   0.16683681]
+ [ 0.210394   -0.16782704  0.3887783   1.          0.29735741]
+ [ 0.2749424   0.1073321   0.16683681  0.29735741  1.        ]]
+between-calss weights cosine for small classes [0.26057592034339905, 0.2592388093471527, 0.2103939950466156, 0.27494239807128906, 0.26057592034339905, 0.32350289821624756, -0.1678270399570465, 0.10733210295438766, 0.2592388093471527, 0.32350289821624756, 0.38877829909324646, 0.16683681309223175, 0.2103939950466156, -0.1678270399570465, 0.38877829909324646, 0.2973574101924896, 0.27494239807128906, 0.10733210295438766, 0.16683681309223175, 0.2973574101924896]
+avg between-class weights cosine for small classes 0.2121131606400013
+std between-class weights cosine for small classes 0.14723733733029712
+std weights norm over avg weights norm for small classes 0.026649399
+total features (25025, 4096)
+total labels (25025,)
+feature norm list [15.428935474327849, 16.01315052008062, 15.070591819861438, 15.606119121176897, 16.158482482888736, 155.08504991716717, 162.59821024994966, 205.23312426112653, 182.58022501934147, 171.50220932462088]
+avg square feature norm 95.52760981905412
+analyze features
+features avg square norm 95.44156918162577
+features norm [ 3.91314045  3.98127087  3.86701979  3.9330959   4.00535952 12.45207578
+ 12.75087707 14.32295173 13.51041924 13.09462042]
+cos features matrix [[ 1.         -0.19120579 -0.22166467 -0.28363502 -0.29435093 -0.05347764
+  -0.02534991 -0.01368267  0.10239127 -0.02824918]
+ [-0.19120579  1.         -0.28723458 -0.2560095  -0.27886602 -0.03966531
+   0.05380365  0.02157077 -0.02818636  0.10953582]
+ [-0.22166467 -0.28723458  1.         -0.23885912 -0.22810882 -0.05805382
+  -0.01523847 -0.0441795  -0.06654507 -0.03768417]
+ [-0.28363502 -0.2560095  -0.23885912  1.         -0.21947829  0.08563083
+  -0.04580924 -0.04344981 -0.05583539 -0.02231112]
+ [-0.29435093 -0.27886602 -0.22810882 -0.21947829  1.          0.05435369
+   0.02404541  0.06746665  0.03819179 -0.03184993]
+ [-0.05347764 -0.03966531 -0.05805382  0.08563083  0.05435369  1.
+   0.33778907  0.43588396  0.47970468  0.58768271]
+ [-0.02534991  0.05380365 -0.01523847 -0.04580924  0.02404541  0.33778907
+   1.          0.59753751 -0.0013828   0.17435011]
+ [-0.01368267  0.02157077 -0.0441795  -0.04344981  0.06746665  0.43588396
+   0.59753751  1.          0.56161646  0.32171948]
+ [ 0.10239127 -0.02818636 -0.06654507 -0.05583539  0.03819179  0.47970468
+  -0.0013828   0.56161646  1.          0.61103313]
+ [-0.02824918  0.10953582 -0.03768417 -0.02231112 -0.03184993  0.58768271
+   0.17435011  0.32171948  0.61103313  1.        ]]
+between class features cosine [-0.19120579 -0.22166467 -0.28363502 -0.29435093 -0.05347764 -0.02534991
+ -0.01368267  0.10239127 -0.02824918 -0.19120579 -0.28723458 -0.2560095
+ -0.27886602 -0.03966531  0.05380365  0.02157077 -0.02818636  0.10953582
+ -0.22166467 -0.28723458 -0.23885912 -0.22810882 -0.05805382 -0.01523847
+ -0.0441795  -0.06654507 -0.03768417 -0.28363502 -0.2560095  -0.23885912
+ -0.21947829  0.08563083 -0.04580924 -0.04344981 -0.05583539 -0.02231112
+ -0.29435093 -0.27886602 -0.22810882 -0.21947829  0.05435369  0.02404541
+  0.06746665  0.03819179 -0.03184993 -0.05347764 -0.03966531 -0.05805382
+  0.08563083  0.05435369  0.33778907  0.43588396  0.47970468  0.58768271
+ -0.02534991  0.05380365 -0.01523847 -0.04580924  0.02404541  0.33778907
+  0.59753751 -0.0013828   0.17435011 -0.01368267  0.02157077 -0.0441795
+ -0.04344981  0.06746665  0.43588396  0.59753751  0.56161646  0.32171948
+  0.10239127 -0.02818636 -0.06654507 -0.05583539  0.03819179  0.47970468
+ -0.0013828   0.56161646  0.61103313 -0.02824918  0.10953582 -0.03768417
+ -0.02231112 -0.03184993  0.58768271  0.17435011  0.32171948  0.61103313]
+std features norm over avg features norm 0.543636215510878
+avg between-class features cosine 0.034532085301365645
+std between-class features cosine 0.24545191241245085
+avg features cosine to -1/(C-1) 0.20734549099063007
+features cosine for small classes [[ 1.          0.33778907  0.43588396  0.47970468  0.58768271]
+ [ 0.33778907  1.          0.59753751 -0.0013828   0.17435011]
+ [ 0.43588396  0.59753751  1.          0.56161646  0.32171948]
+ [ 0.47970468 -0.0013828   0.56161646  1.          0.61103313]
+ [ 0.58768271  0.17435011  0.32171948  0.61103313  1.        ]]
+between-calss features cosine for small classes [0.33778906997686253, 0.4358839636734373, 0.4797046815166853, 0.5876827052819318, 0.33778906997686253, 0.5975375051156423, -0.0013828035698864038, 0.1743501123575789, 0.4358839636734373, 0.5975375051156423, 0.5616164615829291, 0.3217194826433224, 0.4797046815166853, -0.0013828035698864038, 0.5616164615829291, 0.6110331283044153, 0.5876827052819318, 0.1743501123575789, 0.3217194826433224, 0.6110331283044153]
+avg between-class features cosine for small classes 0.41059343068829185
+std between-class features cosine for small classes 0.19324675393380852
+std features norm over avg features norm for small classes 0.04930353730698435
+analyze the duality of weights and features
+dual distance 0.9592782615256407
+dual distance square 0.9202147830356554
+(base) ]0;root@DESKTOP-VFHBUQ9: /mnt/e/GitHub Repo/LPMroot@DESKTOP-VFHBUQ9:/mnt/e/GitHub Repo/LPM# exit
+exit
+
+Script done on 2021-12-13 22:09:37+0800

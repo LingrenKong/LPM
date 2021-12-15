@@ -3,6 +3,7 @@ import numpy as np
 from scipy import spatial
 import sys
 from torch.autograd import Variable
+import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
 from utils import set_random_seed, get_minibatches_idx
@@ -119,18 +120,21 @@ def analyze_dual(linear_weights, class_features):
 
 # FGSM attack code
 def fgsm_attack(image, epsilon, data_grad):
+    if epsilon==0:
+        return image
     # Collect the element-wise sign of the data gradient
     sign_data_grad = data_grad.sign()
     # Create the perturbed image by adjusting each pixel of the input image
     perturbed_image = image + epsilon*sign_data_grad
-    # Adding clipping to maintain [0,1] range
-    perturbed_image = torch.clamp(perturbed_image, 0, 1)
+    # Adding clipping to maintain [0,1] range 这个数据有处理过，不能按照0-1截取
+    #perturbed_image = torch.clamp(perturbed_image, 0, 1)
     # Return the perturbed image
     return perturbed_image
 
 def test(model, device, test_loader, epsilon ):
 
     # Accuracy counter
+    model.eval()
     correct = 0
     adv_examples = []
 
@@ -152,7 +156,7 @@ def test(model, device, test_loader, epsilon ):
             continue
 
         # Calculate the loss
-        loss = F.nll_loss(output, target)
+        loss = F.cross_entropy(output, target)
 
         # Zero all existing gradients
         model.zero_grad()
@@ -234,7 +238,24 @@ if __name__ == '__main__':
     plt.title("Accuracy vs Epsilon")
     plt.xlabel("Epsilon")
     plt.ylabel("Accuracy")
-    plt.show()
+    plt.savefig(config['data'] + '_' + config['model'] + '_t1=' + str(config['t1']) + '_R=' + config['R']+".png")
+
+    # Plot several examples of adversarial samples at each epsilon
+    cnt = 0
+    plt.figure(figsize=(8,10))
+    for i in range(len(epsilons)):
+        for j in range(len(examples[i])):
+            cnt += 1
+            plt.subplot(len(epsilons),len(examples[0]),cnt)
+            plt.xticks([], [])
+            plt.yticks([], [])
+            if j == 0:
+                plt.ylabel("Eps: {}".format(epsilons[i]), fontsize=14)
+            orig,adv,ex = examples[i][j]
+            plt.title("{} -> {}".format(orig, adv))
+            plt.imshow(ex, cmap="gray")
+    plt.tight_layout()
+    plt.savefig('example_'+config['data'] + '_' + config['model'] + '_t1=' + str(config['t1']) + '_R=' + config['R']+".png")
 
 
 
