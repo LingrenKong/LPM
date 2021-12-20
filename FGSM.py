@@ -1,17 +1,176 @@
-import torch
-import numpy as np
-from scipy import spatial
 import sys
-from torch.autograd import Variable
-import torch.nn.functional as F
-import matplotlib.pyplot as plt
+import time
 
-from utils import set_random_seed, get_minibatches_idx
-from models import ResNet18, VGG
-from data import load_data_from_pickle
-from train_models import simple_test_batch
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+from scipy import spatial
+from sklearn.metrics import confusion_matrix
+from torch.autograd import Variable
+from tqdm import tqdm
+
+from data import load_data_from_pickle, save_test_data, save_train_data
+from models import VGG, ResNet18
+from utils import get_minibatches_idx, set_random_seed
 
 torch.set_default_tensor_type('torch.cuda.FloatTensor')
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
+from torch.utils.tensorboard import SummaryWriter
+writer = SummaryWriter()#./runs/ #全局变量
+
+def build_model(config):
+    if config['model'] == 'ResNet18':
+        model = ResNet18(color_channel=config['color_channel'])
+    elif config['model'] == 'VGG11':
+        model = VGG('VGG11', color_channel=config['color_channel'])
+    elif config['model'] == 'VGG13':
+        model = VGG('VGG13', color_channel=config['color_channel'])
+    else:
+        print('wrong model option')
+        model = None
+    loss_function = nn.CrossEntropyLoss()
+    optimizer = optim.SGD(model.parameters(), lr=config['lr'],  momentum=config['momentum'],
+                          weight_decay=config['weight_decay'])
+
+    return model, loss_function, optimizer
+
+# FGSM attack code
+def fgsm_attack(image, epsilon, data_grad):
+    if epsilon==0:
+        return image
+    # Collect the element-wise sign of the data gradient
+    sign_data_grad = data_grad.sign()
+    # Create the perturbed image by adjusting each pixel of the input image
+    perturbed_image = image + epsilon*sign_data_grad
+    # Adding clipping to maintain [0,1] range 这个数据有处理过，不能按照0-1截取
+    #perturbed_image = torch.clamp(perturbed_image, 0, 1)
+    # Return the perturbed image
+    return perturbed_image
+
+def test(model, device, test_loader, epsilon ):
+
+    # Accuracy counter
+    model.eval()
+    correct = 0
+    adv_examples = []
+
+    # Loop over all examples in test set
+    for data, target in test_loader:
+
+        # Send the data and label to the device
+        data, target = data.to(device), target.to(device)
+
+        # Set requires_grad attribute of tensor. Important for Attack
+        data.requires_grad = True
+
+        # Forward pass the data through the model
+        output = model(data)
+        init_pred = output.max(1, keepdim=True)[1] # get the index of the max log-probability
+
+        # If the initial prediction is wrong, dont bother attacking, just move on
+        if init_pred.item() != target.item():
+            continue
+
+        # Calculate the loss
+        loss = F.cross_entropy(output, target)
+
+        # Zero all existing gradients
+        model.zero_grad()
+
+        # Calculate gradients of model in backward pass
+        loss.backward()
+
+        # Collect datagrad
+        data_grad = data.grad.data
+
+        # Call FGSM Attack
+        perturbed_data = fgsm_attack(data, epsilon, data_grad)
+
+        # Re-classify the perturbed image
+        output = model(perturbed_data)
+
+        # Check for success
+        final_pred = output.max(1, keepdim=True)[1] # get the index of the max log-probability
+        if final_pred.item() == target.item():
+            correct += 1
+            # Special case for saving 0 epsilon examples
+            if (epsilon == 0) and (len(adv_examples) < 5):
+                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()
+                adv_examples.append( (init_pred.item(), final_pred.item(), adv_ex) )
+        else:
+            # Save some adv examples for visualization later
+            if len(adv_examples) < 5:
+                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()
+                adv_examples.append( (init_pred.item(), final_pred.item(), adv_ex) )
+
+    # Calculate final accuracy for this epsilon
+    final_acc = correct/float(len(test_loader))
+    print("Epsilon: {}\tTest Accuracy = {} / {} = {}".format(epsilon, correct, len(test_loader), final_acc))
+
+    # Return the accuracy and an adversarial example
+    return final_acc, adv_examples
+
+
+def simple_train_batch(trainloader, model, loss_function, optimizer, config):
+    model.train()
+    for epoch in range(config['epoch_num']):
+        if epoch == int(config['epoch_num'] / 3):
+            for g in optimizer.param_groups:
+                g['lr'] = config['lr'] / 10
+            print('divide current learning rate by 10')
+        elif epoch == int(config['epoch_num'] * 2 / 3):
+            for g in optimizer.param_groups:
+                g['lr'] = config['lr'] / 100
+            print('divide current learning rate by 10')
+        total_loss = 0
+        minibatches_idx = get_minibatches_idx(len(trainloader), minibatch_size=config['simple_train_batch_size'],
+                                              shuffle=True)
+        for minibatch in minibatches_idx:
+            inputs = torch.Tensor(np.array([list(trainloader[x][0].cpu().numpy()) for x in minibatch]))
+            targets = torch.Tensor(np.array([list(trainloader[x][1].cpu().numpy()) for x in minibatch]))
+            inputs, targets = Variable(inputs.cuda()).squeeze(1), Variable(targets.long().cuda()).squeeze()
+            optimizer.zero_grad()
+            outputs = model(inputs).squeeze()
+            loss = loss_function(outputs, targets)
+            total_loss += loss
+            loss.backward()
+            optimizer.step()
+        print('epoch:', epoch, 'loss:', total_loss,'time:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+
+def simple_test_batch(testloader, model, config):
+    model.eval()
+    total = 0.0
+    correct = 0.0
+    minibatches_idx = get_minibatches_idx(len(testloader), minibatch_size=config['simple_test_batch_size'],
+                                          shuffle=False)
+    y_true = []
+    y_pred = []
+    for minibatch in minibatches_idx:
+        inputs = torch.Tensor(np.array([list(testloader[x][0].cpu().numpy()) for x in minibatch]))
+        targets = torch.Tensor(np.array([list(testloader[x][1].cpu().numpy()) for x in minibatch]))
+        inputs, targets = Variable(inputs.cuda()).squeeze(1), Variable(targets.cuda()).squeeze()
+        outputs = model(inputs)
+        _, predicted = torch.max(outputs, 1)
+        total += targets.size(0)
+        correct += predicted.eq(targets.long()).sum().item()
+        y_true.extend(targets.cpu().data.numpy().tolist())
+        y_pred.extend(predicted.cpu().data.numpy().tolist())
+    test_accuracy = correct / total
+    test_confusion_matrix = confusion_matrix(y_true, y_pred)
+    t1 = config['t1']
+    big_class_acc = np.sum([test_confusion_matrix[i, i] for i in range(t1)]) / np.sum(test_confusion_matrix[:t1])
+    if t1 == 10:
+        small_class_acc = None
+    else:
+        small_class_acc = \
+            np.sum([test_confusion_matrix[i, i] for i in range(10)[t1:]]) / np.sum(test_confusion_matrix[t1:])
+    return test_accuracy, big_class_acc, small_class_acc, test_confusion_matrix
 
 
 def load_model(config):
@@ -118,81 +277,7 @@ def analyze_dual(linear_weights, class_features):
     print('dual distance', np.linalg.norm(linear_weights - class_features))
     print('dual distance square', np.square(np.linalg.norm(linear_weights - class_features)))
 
-# FGSM attack code
-def fgsm_attack(image, epsilon, data_grad):
-    if epsilon==0:
-        return image
-    # Collect the element-wise sign of the data gradient
-    sign_data_grad = data_grad.sign()
-    # Create the perturbed image by adjusting each pixel of the input image
-    perturbed_image = image + epsilon*sign_data_grad
-    # Adding clipping to maintain [0,1] range 这个数据有处理过，不能按照0-1截取
-    #perturbed_image = torch.clamp(perturbed_image, 0, 1)
-    # Return the perturbed image
-    return perturbed_image
 
-def test(model, device, test_loader, epsilon ):
-
-    # Accuracy counter
-    model.eval()
-    correct = 0
-    adv_examples = []
-
-    # Loop over all examples in test set
-    for data, target in test_loader:
-
-        # Send the data and label to the device
-        data, target = data.to(device), target.to(device)
-
-        # Set requires_grad attribute of tensor. Important for Attack
-        data.requires_grad = True
-
-        # Forward pass the data through the model
-        output = model(data)
-        init_pred = output.max(1, keepdim=True)[1] # get the index of the max log-probability
-
-        # If the initial prediction is wrong, dont bother attacking, just move on
-        if init_pred.item() != target.item():
-            continue
-
-        # Calculate the loss
-        loss = F.cross_entropy(output, target)
-
-        # Zero all existing gradients
-        model.zero_grad()
-
-        # Calculate gradients of model in backward pass
-        loss.backward()
-
-        # Collect datagrad
-        data_grad = data.grad.data
-
-        # Call FGSM Attack
-        perturbed_data = fgsm_attack(data, epsilon, data_grad)
-
-        # Re-classify the perturbed image
-        output = model(perturbed_data)
-
-        # Check for success
-        final_pred = output.max(1, keepdim=True)[1] # get the index of the max log-probability
-        if final_pred.item() == target.item():
-            correct += 1
-            # Special case for saving 0 epsilon examples
-            if (epsilon == 0) and (len(adv_examples) < 5):
-                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()
-                adv_examples.append( (init_pred.item(), final_pred.item(), adv_ex) )
-        else:
-            # Save some adv examples for visualization later
-            if len(adv_examples) < 5:
-                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()
-                adv_examples.append( (init_pred.item(), final_pred.item(), adv_ex) )
-
-    # Calculate final accuracy for this epsilon
-    final_acc = correct/float(len(test_loader))
-    print("Epsilon: {}\tTest Accuracy = {} / {} = {}".format(epsilon, correct, len(test_loader), final_acc))
-
-    # Return the accuracy and an adversarial example
-    return final_acc, adv_examples
 
 
 
