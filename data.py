@@ -11,7 +11,7 @@ def load_cifar10_data(dir_path):
     # test: 1000 images per class
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)),
+        # transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)), #去掉标准化操作，便于对FGSM进行clip处理
     ])
     trainset = torchvision.datasets.CIFAR10(root=dir_path + '/data', train=True,
                                             download=True, transform=transform)
@@ -29,16 +29,22 @@ def load_fashion_mnist_data(dir_path):
     # 10 classes: T-shirt/Top, Trouser, Pullover, Dress, Coat, Sandals, Shirt, Sneaker, Bag, Ankle boots
     # train: 6000 images per class
     # test: 1000 images per class
-    transform = transforms.Compose([transforms.Resize(32), transforms.ToTensor(),
-                                    transforms.Normalize((0.2860,), (0.3530,))])
-    trainset = datasets.FashionMNIST(dir_path + '/data', download=True, train=True, transform=transform)
-    testset = datasets.FashionMNIST(dir_path + '/data', download=True, train=False, transform=transform)
+    transform = transforms.Compose([transforms.Resize(32),
+                                    transforms.ToTensor(),
+                                    # transforms.Normalize((0.2860,), (0.3530,))##去掉标准化操作，便于对FGSM进行clip处理
+                                    ])
+    trainset = datasets.FashionMNIST(
+        dir_path + '/data', download=True, train=True, transform=transform)
+    testset = datasets.FashionMNIST(
+        dir_path + '/data', download=True, train=False, transform=transform)
     # mean = trainset.data.float().mean() / 255
     # std = trainset.data.float().std() / 255
     # print('mean', mean)
     # print('std', std)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=1000, shuffle=True)
+    trainloader = torch.utils.data.DataLoader(
+        trainset, batch_size=128, shuffle=True)
+    testloader = torch.utils.data.DataLoader(
+        testset, batch_size=1000, shuffle=True)
     return trainloader, testloader
 
 
@@ -47,14 +53,18 @@ def save_train_data(config):
     if config['data'] == 'cifar10':
         transform = transforms.Compose([
             transforms.ToTensor(),
-            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)),
+            # transforms.Normalize((0.4914, 0.4822, 0.4465),(0.247, 0.243, 0.261)),##去掉标准化操作，便于对FGSM进行clip处理
         ])
-        trainset = datasets.CIFAR10(root=dir_path + '/data', train=True, download=True, transform=transform)
+        trainset = datasets.CIFAR10(
+            root=dir_path + '/data', train=True, download=True, transform=transform)
     elif config['data'] == 'fashion_mnist':
         transform = transforms.Compose([transforms.Resize(32), transforms.ToTensor(),
-                                        transforms.Normalize((0.2860,), (0.3530,))])
-        trainset = datasets.FashionMNIST(dir_path + '/data', download=True, train=True, transform=transform)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=1, shuffle=True)
+                                        #transforms.Normalize((0.2860,), (0.3530,))##去掉标准化操作，便于对FGSM进行clip处理
+                                        ])
+        trainset = datasets.FashionMNIST(
+            dir_path + '/data', download=True, train=True, transform=transform)
+    trainloader = torch.utils.data.DataLoader(
+        trainset, batch_size=1, shuffle=True)
     train_data = []
     label_num = [0] * 10
     for batch_idx, (inputs, targets) in enumerate(trainloader):
@@ -78,14 +88,18 @@ def save_test_data(config):
     if config['data'] == 'cifar10':
         transform = transforms.Compose([
             transforms.ToTensor(),
-            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)),
+            #transforms.Normalize((0.4914, 0.4822, 0.4465),(0.247, 0.243, 0.261)),##去掉标准化操作，便于对FGSM进行clip处理
         ])
-        testset = datasets.CIFAR10(root=dir_path + '/data', train=False, download=True, transform=transform)
+        testset = datasets.CIFAR10(
+            root=dir_path + '/data', train=False, download=True, transform=transform)
     elif config['data'] == 'fashion_mnist':
         transform = transforms.Compose([transforms.Resize(32), transforms.ToTensor(),
-                                        transforms.Normalize((0.2860,), (0.3530,))])
-        testset = datasets.FashionMNIST(dir_path + '/data', download=True, train=False, transform=transform)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=1, shuffle=False)
+                                        #transforms.Normalize((0.2860,), (0.3530,))##去掉标准化操作，便于对FGSM进行clip处理
+                                        ])
+        testset = datasets.FashionMNIST(
+            dir_path + '/data', download=True, train=False, transform=transform)
+    testloader = torch.utils.data.DataLoader(
+        testset, batch_size=1, shuffle=False)
     test_data = []
     label_num = [0] * 10
     for batch_idx, (inputs, targets) in enumerate(testloader):
@@ -93,7 +107,8 @@ def save_test_data(config):
         test_data.append((inputs, targets))
         label_num[label_idx] += 1
     print('test label num', label_num)
-    pickle_out_test = open(dir_path + "/data/test_" + config['data'] + ".pickle", "wb")
+    pickle_out_test = open(dir_path + "/data/test_" +
+                           config['data'] + ".pickle", "wb")
     pickle.dump(test_data, pickle_out_test)
     pickle_out_test.close()
 
@@ -102,10 +117,10 @@ def load_data_from_pickle(config):
     dir_path = config['dir_path']
     pickle_in_train = open(dir_path + "/data/train_" + config['data'] + "_t1=" + str(config['t1']) + '_R='
                            + config['R'] + "_" + config['fixed'] + ".pickle", "rb")
-    pickle_in_test = open(dir_path + "/data/test_" + config['data'] + ".pickle", "rb")
+    pickle_in_test = open(dir_path + "/data/test_" +
+                          config['data'] + ".pickle", "rb")
     trainloader = pickle.load(pickle_in_train)
     testloader = pickle.load(pickle_in_test)
     pickle_in_train.close()
     pickle_in_test.close()
     return trainloader, testloader
-
